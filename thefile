@@ -1,0 +1,59 @@
+//Dante
+
+#include "stdafx.h"
+#include <iostream>
+#include <math.h> 
+
+using namespace std;
+
+int main()
+{
+	double price = 0, grams = 0, tinbags = 0, pcnt = 0, temppcnt = 0, withprc = 0, tprice = 0;
+	int bags = 0, mprc = 0;
+	char optn = ' ';
+
+	cout << "Enter the grams of each bag: ";
+	cin >> grams;
+	tinbags = (1 / grams);
+	cout << "That would be: " << floor(tinbags) << " bags [<-this number is rounder backwards] in 1 gram.\nMaking a total of : " << (floor(tinbags) * 28) << " bags in 1 ounce.\n";
+
+	cout << endl;
+	cout << endl;
+
+	cout << "How much did you buy the ounce for?\n ->";
+	cin >> mprc;
+
+	cout << endl;
+	cout << endl;
+
+	cout << "Enter the price of each bag: ";
+	cin >> price;
+	tprice = (price * ((floor(tinbags)) * 28));
+	withprc = (tprice - mprc);
+	cout << "That would be: $" << tprice << " of income.\nWith a deductant of: " << mprc << " equalling to: " << withprc;
+
+	cout << endl;
+	cout << endl;
+
+	cout << "Are there any percent cuts? (Y/N)\n ->";
+	cin >> optn;
+	switch (optn)
+		{
+			case 'Y' :
+			case 'y' :
+				cout << "Enter percent cut: ";
+				cin >> temppcnt;
+				pcnt = (temppcnt / 100);
+				cout << "\nOriginal income after deductant: $" << withprc << "\nWith a percent cut of " << temppcnt << "% equal to: " << (withprc * pcnt) << "\nA total of: $" << (withprc - (withprc * pcnt))<< " of true income.";
+				break;
+
+			default :
+				break;
+		}
+
+	cout << endl;
+	cout << endl;
+
+	system("PAUSE");
+	return 0;
+}
